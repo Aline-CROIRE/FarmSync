@@ -1,0 +1,22 @@
+<h1>User DashBord</h1>
+<h2>{{ dashboard.name }}</h2>
+<div>
+    <h2>cooperative</h2>
+    <h4>{{ dashboard.coop_info.number_of_member }}</h4>
+    <h4>{{ dashboard.coop_info.location }}</h4>
+</div>
+<div>
+    <h2>stock</h2>
+    {% for trans in dashboard.management %}
+       <h1>{{ trans.total_quantity_quality }}</h1>
+       <p>{{ trans.date }}</p>
+    {% endfor %}
+</div>
+<div>
+    <h2>system status</h2>
+    {% for system in dashboard.system_info %}
+      <h3>{{ system.temperature_change }}</h3>
+      <h3>{{ system.humidity_change }}</h3>
+      <p>{{ system.failed }}</p>
+      {% endfor %}
+</div>

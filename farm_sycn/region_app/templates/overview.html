@@ -1,0 +1,15 @@
+{% if cooperative_info %}
+   {% with coop=cooperative_info %}
+   <h1>Name: {{ coop.user.full_name }}</h1>
+   <h2> contact: {{ coop.contact }}</h2>
+   <h2>start_up_date: {{ coop.start_date }}</h2>
+   <p>location : {{ coop.location }}</p>
+   <h1>member of cooperation: {{ coop.number_of_member }}</h1>
+   <a href="{{ coop.trade_license.url }}" target="_blank">{{ coop.trade_license.name }}</a>
+   {% with stocks=coop.stock_management_set.all %}
+   {% for stock in stocks%}
+      <h3>total Stock: {{ stock.quality.name }} -> {{ stock.total_quantity_quality }}</h3>
+      {% endfor %}
+   {% endwith %}
+   {% endwith %}
+{% endif %}

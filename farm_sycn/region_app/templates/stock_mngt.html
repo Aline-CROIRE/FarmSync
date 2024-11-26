@@ -1,0 +1,27 @@
+<h1>stock management full information</h1>
+<table>
+    <thead>
+        <tr>
+            <th>DATE</th>
+            <th>Quality</th>
+            <th>QUantity</th>
+            <th>REMAIN In Stock</th>
+            <th>DEO</th>
+            <th>Temperature</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+          <tr>
+            <td>{{ stock.date }}</td>
+            <td>{{ stock.quantity }}KG</td>
+            <td>{{ stock.quality.name }}</td>
+            <td>{{ stock.total_quantity_quality}}</td>
+            <td>{{ stock.expired_date }}</td>
+            <td>{{  stock.cooperative.user.fullname }}</td>
+            <td>{{ stock.cooperative.contact }}</td>
+          </tr>
+        {% endfor %}
+    </tbody> 
+</table>
